@@ -16,7 +16,6 @@ function LoginScreen() {
         value={username}
         onChangeText={setUsername}
       />
-      <Icon name="comments" size={30} color="#900" />
       <TextInput
         placeholder="Password"
         value={password}
