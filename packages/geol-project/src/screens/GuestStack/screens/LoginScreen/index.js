@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {View, Text, Button, TextInput} from 'react-native';
 import AuthContext from '../../../../lib/AuthContext';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 function LoginScreen() {
   const [username, setUsername] = React.useState('');
@@ -15,6 +16,7 @@ function LoginScreen() {
         value={username}
         onChangeText={setUsername}
       />
+      <Icon name="comments" size={30} color="#900" />
       <TextInput
         placeholder="Password"
         value={password}
