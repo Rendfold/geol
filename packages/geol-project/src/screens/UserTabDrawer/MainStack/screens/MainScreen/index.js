@@ -7,6 +7,7 @@ function MainScreen() {
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Text>Main Screen</Text>
       <CardComponent />
+      
     </View>
   );
 }
