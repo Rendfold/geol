@@ -26,9 +26,9 @@ const cards = [
 export default class CardComponent extends Component {
   render() {
     return (
-      <Container>
+      <Container style={{flex: 1}}>
         <Header />
-        <View>
+        <View style={{}}>
           <DeckSwiper
             dataSource={cards}
             renderItem={item =>
