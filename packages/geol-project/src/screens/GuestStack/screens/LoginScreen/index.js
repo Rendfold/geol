@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {View, Text, Button, TextInput} from 'react-native';
 import AuthContext from '../../../../lib/AuthContext';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 function LoginScreen() {
   const [username, setUsername] = React.useState('');
