@@ -31,7 +31,7 @@ import Svg, { Path, Stop, Defs, LinearGradient } from 'react-native-svg';
 		clearCart: bindActionCreators(clearCart, dispatch),
 	})
 ))
-class LoggedDrawer extends React.PureComponent<any, any> {
+function DrawerMenu (){
 	navigateToScreen = route => {
 		this.props.navigation.navigate(route);
 
