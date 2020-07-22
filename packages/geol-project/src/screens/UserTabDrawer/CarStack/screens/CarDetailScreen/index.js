@@ -9,6 +9,7 @@ import {
   Linking,
   FlatList,
   StyleSheet,
+  Image,
 } from 'react-native';
 import DatePicker from './DatePicker';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
@@ -19,7 +20,7 @@ function DetailScreen() {
 
   console.log('sss', allVehicles.cars);
   const [, setDate] = React.useState(new Date());
-  const handleChange = (newDate) => {
+  const handleChange = newDate => {
     setDate(newDate);
   };
 
@@ -75,7 +76,20 @@ function DetailScreen() {
         data={allVehicles.cars}
         renderItem={({item}) => (
           <TouchableOpacity style={styles.itemContainer}>
-            <Text style={styles.itemText}>{item.color}</Text>
+            <View style={styles.container}>
+              <View style={styles.imageContainer}>
+                <Image
+                  source={{uri: item.imageUrl}}
+                  style={styles.image}
+                  resizeMode="contain"
+                />
+              </View>
+              <Text style={styles.itemText}>{item.color}</Text>
+              <Text style={styles.itemText}>{item.model}</Text>
+              <Text style={styles.itemText}>{item.price}</Text>
+              <Text style={styles.itemText}>{item.licenseNumber}</Text>
+              <Text style={styles.itemText}>{item.type}</Text>
+            </View>
           </TouchableOpacity>
         )}
       />
@@ -83,6 +97,28 @@ function DetailScreen() {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  itemContainer: {
+    backgroundColor: 'green',
+    margin: 5,
+    width: '100%',
+    height: 200,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+  },
+  container: {
+    backgroundColor: 'pink',
+  },
+  imageContainer: {
+    backgroundColor: 'red',
+    width: '90%',
+    height: 100,
+    zIndex: 100,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+  },
+});
 
 export default DetailScreen;
