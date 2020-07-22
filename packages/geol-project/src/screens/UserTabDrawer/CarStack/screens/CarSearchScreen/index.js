@@ -12,14 +12,13 @@ import axios from 'axios';
 import {AllVehiclesContext} from '../../../../../Context/AllVehiclesContext';
 
 function CarSearchScreen({navigation}) {
-  // const {allVehicles, updateAllVehicles} = useContext(AllVehiclesContext);
-  // console.log('pa ra lala lala-->', allVehicles);
-  const [data, setData] = useState();
+  const {allVehicles, updateAllVehicles} = useContext(AllVehiclesContext);
+  console.log('pa ra lala lala-->', allVehicles);
+  // const [data, setData] = useState();
   useEffect(() => {
-    axios.get('https://ciu2020.herokuapp.com/vehicle/list').then((response) => {
+    axios.get('https://ciu2020.herokuapp.com/vehicle/list').then(response => {
       console.log('ress data--->', response.data);
-      setData(response.data);
-      console.log('datata->', data);
+      updateAllVehicles(response.data);
     });
   });
   // console.log('datata->111->', data);
@@ -29,16 +28,23 @@ function CarSearchScreen({navigation}) {
       <ImageBackground
         source={require('../../../../../../images/electric-green-car.jpg')}
         style={styles.imgBackground}>
-        <FlatList
+        <TouchableOpacity style={styles.itemContainer}>
+          <Text style={styles.itemText}>Cars</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.itemContainer}>
+          <Text style={styles.itemText}>Bicycle</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.itemContainer}>
+          <Text style={styles.itemText}>Electric Scooter</Text>
+        </TouchableOpacity>
+        {/* <FlatList
           data={data}
           renderItem={({item}) => (
-            <TouchableOpacity
-              style={styles.itemContainer}
-              onPress={() => navigation.navigate('CarDetailScreen')}>
-              <Text style={styles.itemText}>{item.type}</Text>
+            <TouchableOpacity style={styles.itemContainer}>
+              <Text style={styles.itemText}>{item}</Text>
             </TouchableOpacity>
           )}
-        />
+        /> */}
       </ImageBackground>
     </View>
   );
@@ -55,7 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   itemContainer: {
-    marginTop: 20,
+    marginTop: 30,
     paddingVertical: 8,
     marginHorizontal: 16,
     borderRadius: 6,

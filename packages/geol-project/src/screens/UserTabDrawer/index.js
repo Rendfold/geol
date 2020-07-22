@@ -86,7 +86,7 @@ function TabNavigator() {
   return (
     <Tab.Navigator
       initialRouteName="MainStack"
-      tabBar={(props) => <CustomTabBar {...props} />}>
+      tabBar={props => <CustomTabBar {...props} />}>
       <Tab.Screen
         name="MainStack"
         options={{tabBarLabel: 'Main'}}
