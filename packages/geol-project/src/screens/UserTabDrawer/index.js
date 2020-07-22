@@ -4,7 +4,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import MainStack from './MainStack';
 import PaymentScreen from './MainStack/screens/PaymentScreen';
 import CarStack from './CarStack';
-import {View, TouchableOpacity, Text, Button} from 'react-native';
+import {View, TouchableOpacity, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
 const Drawer = createDrawerNavigator();
@@ -82,12 +82,6 @@ function CustomTabBar({navigation, state, descriptors}) {
   );
 }
 
-// function PaymentScreen(){
-//  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-//       <Button onPress={() => navigation.goBack()} title="Go back home" />
-//     </View>
-// }
-
 function TabNavigator() {
   return (
     <Tab.Navigator
@@ -100,7 +94,7 @@ function TabNavigator() {
       />
       <Tab.Screen
         name="CarStack"
-        options={{tabBarLabel: 'Cars'}}
+        options={{tabBarLabel: 'Transport'}}
         component={CarStack}
       />
     </Tab.Navigator>
@@ -111,7 +105,6 @@ function DrawerTabNavigator() {
   return (
     <Drawer.Navigator initialRouteName="Tabs">
       <Drawer.Screen name="Tabs" component={TabNavigator} />
-      {/* <Drawer.Screen name="menu" component={DrawerMenu} /> */}
       <Drawer.Screen name="payment" component={PaymentScreen} />
     </Drawer.Navigator>
   );

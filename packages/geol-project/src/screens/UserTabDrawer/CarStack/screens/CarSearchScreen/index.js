@@ -11,9 +11,10 @@ import {
 import axios from 'axios';
 import {AllVehiclesContext} from '../../../../../Context/AllVehiclesContext';
 
-function CarSearchScreen() {
+function CarSearchScreen({navigation}) {
   const {allVehicles, updateAllVehicles} = useContext(AllVehiclesContext);
   console.log('pa ra lala lala-->', allVehicles);
+  // const [data, setData] = useState();
   useEffect(() => {
     axios.get('https://ciu2020.herokuapp.com/vehicle/list').then(response => {
       console.log('ress data--->', response.data);
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
   itemContainer: {
     marginTop: 30,
     paddingVertical: 8,
-    marginHorizontal: 10,
+    marginHorizontal: 16,
     borderRadius: 6,
     backgroundColor: 'rgba(107, 160, 127, 0.7)',
     textAlign: 'center',

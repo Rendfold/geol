@@ -2,28 +2,18 @@ import React, { Component } from 'react';
 import { Image, ScrollView, View, TouchableOpacity, Text } from 'react-native';
 const cards = [
     {
-        text: 'Card One',
-        name: 'One',
         image: require('./images/Scooter_1.jpg'),
     },
     {
-        text: 'Card two',
-        name: 'One',
         image: require('./images/Scooter_2.png'),
     },
     {
-        text: 'Card three',
-        name: 'One',
         image: require('./images/Scooter_3.jpg'),
     },
     {
-        text: 'Card three',
-        name: 'One',
         image: require('./images/Scooter_4.png'),
     },
     {
-        text: 'Card four',
-        name: 'One',
         image: require('./images/ScooterDefault.png'),
     },
 ];
@@ -44,7 +34,7 @@ export default class CardComponent extends Component {
                 >
                     {cards.map((item, index) => (
                         <View key={index} style={{ paddingVertical: 10, marginRight: 16, }}>
-                            <TouchableOpacity onPress={() => navigation.navigate('')}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('DetailScreen')}>
                                 <Image
                                     source={item.image}
                                     style={{ width: 200, height: 200, marginTop: 0, borderRadius: 6 }}
