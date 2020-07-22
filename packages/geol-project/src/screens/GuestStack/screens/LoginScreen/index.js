@@ -9,7 +9,6 @@ import {
   ScrollView,
 } from 'react-native';
 import AuthContext from '../../../../lib/AuthContext';
-
 import {isEmpty} from 'lodash';
 
 const Geol = require('./Geol.png');
@@ -57,11 +56,8 @@ function LoginScreen({navigation}) {
           }}
           disabled={disabled ? false : true}
           >
-          <Button
-            title="Sign in"
-            color="#fff"
-          />
-        </TouchableOpacity>
+         <Text style={{color: '#fff', fontSize: 18, textAlign: 'center',lineHeight: 44}}>Sign In</Text>
+         </TouchableOpacity>
         <View style={{paddingTop: 10}}>
           <Button
             title="Registration"
