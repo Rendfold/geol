@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {isEmpty} from 'lodash';
-import {DatePicker} from './DatePicker';
+import DatePicker from './DatePicker';
 
 function DetailScreen() {
   return (
@@ -26,10 +26,7 @@ function DetailScreen() {
           borderRadius: 6,
           marginTop: 20,
         }}>
-        <Button
-          title="Book Now"
-          color="#fff"
-        />
+        <Button title="Book Now" color="#fff" />
       </TouchableOpacity>
     </ScrollView>
   );
