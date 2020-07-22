@@ -23,8 +23,8 @@ const DatePickerComponent = ({handleChange}) => {
         modalTransparent={false}
         animationType={'fade'}
         androidMode={'default'}
-        placeHolderText="Select date"
-        placeHolderTextStyle={{color: '#d3d3d3'}}
+        placeHolderText="Select Date"
+        placeHolderTextStyle={{color: '#252729', fontSize: 18}}
         onDateChange={onChange}
         disabled={false}
       />
