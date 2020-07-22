@@ -48,7 +48,7 @@ function LoginScreen({navigation}) {
           <Button
             title="Sign in"
             color="#fff"
-            disabled={!isEmpty(username) && !isEmpty(password) ? false : true}
+            disabled={!isEmpty(username) || !isEmpty(password) ? false : true}
           />
         </TouchableOpacity>
         <View style={{paddingTop: 10}}>

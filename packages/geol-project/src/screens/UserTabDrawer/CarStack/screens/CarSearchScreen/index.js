@@ -16,11 +16,11 @@ function CarSearchScreen({navigation}) {
   console.log('pa ra lala lala-->', allVehicles);
   // const [data, setData] = useState();
   useEffect(() => {
-    axios.get('https://ciu2020.herokuapp.com/vehicle/list').then(response => {
+    axios.get('https://ciu2020.herokuapp.com/vehicle/list').then((response) => {
       console.log('ress data--->', response.data);
       updateAllVehicles(response.data);
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   // console.log('datata->111->', data);
 
@@ -29,7 +29,9 @@ function CarSearchScreen({navigation}) {
       <ImageBackground
         source={require('../../../../../../images/electric-green-car.jpg')}
         style={styles.imgBackground}>
-        <TouchableOpacity style={styles.itemContainer}>
+        <TouchableOpacity
+          style={styles.itemContainer}
+          onPress={() => navigation.navigate('CarDetailScreen')}>
           <Text style={styles.itemText}>Cars</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.itemContainer}>
