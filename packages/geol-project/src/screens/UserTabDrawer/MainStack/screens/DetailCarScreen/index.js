@@ -14,34 +14,34 @@ import IconB from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 
 
 
-const scooter = require('./ScooterDefault.png')
+const car = require('./Car.png')
 
-function DetailScreen() {
+function DetailCarScreen() {
     return (
         <ScrollView style={{ backgroundColor: '#fff', flex: 1 }}>
             <View>
-                <ImageBackground source={scooter} style={{ width: '100%', height: 300 }} />
+                <ImageBackground source={car} style={{ width: '100%', height: 300 }} />
                 <View style={{ flexDirection: 'row', marginHorizontal: 16, paddingTop: 20 }}>
                     <Icon name="check" size={25} color="#6BA07F"/>
-                    <Text style={{ paddingLeft: 5, fontSize: 16, color: '#52514C', paddingRight: 16, lineHeight: 24 }}>A motorized scooter is a powered stand-up scooter using a small utility internal combustion engine or, more commonly, an electric motor. </Text>
+                    <Text style={{ paddingLeft: 5, fontSize: 16, color: '#52514C', paddingRight: 16, lineHeight: 24 }}>
+                        An electric car is an automobile that is propelled by one or more electric motors, using energy stored in rechargeable batteries.
+                     </Text>
                 </View>
                 <View style={{ flexDirection: 'row', marginHorizontal: 16, paddingTop: 16 }}>
-                    <IconA name="direction" size={30} color="#6BA07F"/>
+                    <IconB name="routes-clock" size={30} color="#6BA07F"/>
                     <Text style={{ paddingLeft: 5, fontSize: 16, color: '#52514C', paddingRight: 16, lineHeight: 24 }}>
-                        Find a scooter near you and tap the button to unlock
+                        Fit location,date and car details.we offer big variety of cars.
                     </Text>
                 </View>
                 <View style={{ flexDirection: 'row', marginHorizontal: 16, paddingTop: 16 }}>
-                    <IconB name="scooter" size={30} color="#6BA07F"/>
+                    <IconB name="shield-car" size={30} color="#6BA07F"/>
                     <Text style={{ paddingLeft: 5, fontSize: 16, color: '#52514C', paddingRight: 16, lineHeight: 24 }}>
-                        Ride on bike lanes, car roads and sidewalks.
-                        Don’t block public pathways, park by bike racks when available
-                    </Text>
-
+                        Meet car owner at chosen location.Our support team is 24/7 online dor your best car trip
+                     </Text>
                 </View>
             </View>
         </ScrollView>
     );
 }
 
-export default DetailScreen;
+export default DetailCarScreen;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {MainScreen, DetailScreen, PaymentScreen} from './screens';
+import {MainScreen, DetailScreen,DetailCarScreen, PaymentScreen} from './screens';
 
 const Stack = createStackNavigator();
 
@@ -15,7 +15,12 @@ function MainStack() {
       <Stack.Screen
         name="DetailScreen"
         component={DetailScreen}
-        options={{title: 'Car Details'}}
+        options={{title: 'How it works'}}
+      />
+      <Stack.Screen
+        name="DetailCarScreen"
+        component={DetailCarScreen}
+        options={{title: 'How it works'}}
       />
       <Stack.Screen
         name="PaymentScreen"
