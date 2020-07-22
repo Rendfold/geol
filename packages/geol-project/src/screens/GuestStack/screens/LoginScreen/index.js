@@ -11,6 +11,7 @@ function LoginScreen({navigation}) {
   const [password, setPassword] = React.useState('');
 
   const {signIn} = React.useContext(AuthContext);
+  let disabled = !isEmpty(username) && !isEmpty(password);
 
   return (
     <ScrollView style={{backgroundColor: '#fff', flex: 1}}>
@@ -39,16 +40,18 @@ function LoginScreen({navigation}) {
         <TouchableOpacity
           onPress={() => signIn({username, password})}
           style={{
-            backgroundColor: '#6BA07F',
+            backgroundColor:'#6BA07F',
+            opacity: !disabled ? 0.5 : 1,
             width: '100%',
             height: 44,
             borderRadius: 6,
             marginTop: 20,
-          }}>
+          }}
+          disabled={disabled ? false : true}
+          >
           <Button
             title="Sign in"
             color="#fff"
-            disabled={!isEmpty(username) && !isEmpty(password) ? false : true}
           />
         </TouchableOpacity>
         <View style={{paddingTop: 10}}>
