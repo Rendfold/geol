@@ -1,34 +1,45 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { Container, Header, View, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body, Icon } from 'native-base';
+const carImage = require('./images/autohauser.png')
 const cards = [
   {
-    text: 'Card One',
-    name: 'One',
-    image: require('./autohauser.png'),
+    text: 'Eco Car',
+    name: '5.0',
+    image: require('./images/carDefault.jpg'),
+    price: '60$'
   },
   {
-    text: 'Card two',
-    name: 'One',
-    image: require('./autohauser.png'),
+    text: 'Eco Car',
+    name: '4.8',
+    image: require('./images/car_4.png'),
+    price: '55$'
   },
   {
-    text: 'Card three',
-    name: 'One',
-    image: require('./autohauser.png'),
+    text: 'Eco Car',
+    name: '4.7',
+    image: require('./images/car_3.jpg'),
+    price: '40$'
   },
   {
-    text: 'Card four',
-    name: 'One',
-    image: require('./autohauser.png'),
+    text: 'Eco Car',
+    name: '4.5',
+    image: require('./images/car_2.jpg'),
+    price: '50$'
+  },
+  {
+    text: 'Eco Car',
+    name: '4.4',
+    image: require('./images/car_1.jpg'),
+    price: '35$'
   },
 ];
 export default class CardComponent extends Component {
   render() {
     return (
-      <Container style={{flex: 1, width: '90%'}}>
+      <Container style={{ width: '100%', paddingHorizontal: 16, height: 500 }}>
         <Text
-        style={{fontSize: 22, color: '#000', fontWeight: "bold", fontFamily: "Cochin", paddingVertical: 10 }}
+          style={{ fontSize: 22, color: '#000', fontWeight: "bold", fontFamily: "Cochin", paddingVertical: 10 }}
         >
           Popular Cars
         </Text>
@@ -39,10 +50,12 @@ export default class CardComponent extends Component {
               <Card style={{ elevation: 3 }}>
                 <CardItem>
                   <Left>
-                    <Thumbnail source={item.image} />
+                    <Thumbnail source={carImage} />
                     <Body>
                       <Text>{item.text}</Text>
-                      <Text note>NativeBase</Text>
+                      <Text note>{item.price}
+                        <Text style={{fontSize: 11, color: '#5D5B54'}}>/day</Text>
+                      </Text>
                     </Body>
                   </Left>
                 </CardItem>
@@ -50,12 +63,13 @@ export default class CardComponent extends Component {
                   <Image style={{ height: 300, flex: 1 }} source={item.image} />
                 </CardItem>
                 <CardItem>
-                  <Icon name="heart" style={{ color: '#ED4A6A' }} />
+                  <Icon name="star" style={{ color: '#FFD500' }} />
                   <Text>{item.name}</Text>
                 </CardItem>
               </Card>
             }
           />
+
         </View>
       </Container>
     );

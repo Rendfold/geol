@@ -50,13 +50,15 @@ function Registration() {
             onChangeText={setPassword}
             style={{ fontSize: 18, }}
             placeholderTextColor="#3E453B"
+            maxLength={16}
+            minLength={6}
             secureTextEntry
           />
         </View>
         <TouchableOpacity
           onPress={() => signIn({ username, password })}
           style={{ backgroundColor: '#6BA07F', width: '100%', height: 44, borderRadius: 6, marginTop: 20 }}>
-          <Button title="Sign in"
+          <Button title="Registration"
             type="clear"
             color="#fff"
             disabled={!isEmpty(username) && !isEmpty(password) ? false : true}
