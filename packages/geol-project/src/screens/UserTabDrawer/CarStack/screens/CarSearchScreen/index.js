@@ -23,7 +23,8 @@ function CarSearchScreen({navigation}) {
       console.log('ress data--->', response.data);
       updateAllVehicles(response.data);
     });
-  });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   // console.log('datata->111->', data);
 
   return (
