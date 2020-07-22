@@ -92,7 +92,7 @@ function TabNavigator() {
   return (
     <Tab.Navigator
       initialRouteName="MainStack"
-      tabBar={(props) => <CustomTabBar {...props} />}>
+      tabBar={props => <CustomTabBar {...props} />}>
       <Tab.Screen
         name="MainStack"
         options={{tabBarLabel: 'Main'}}
@@ -112,7 +112,7 @@ function DrawerTabNavigator() {
     <Drawer.Navigator initialRouteName="Tabs">
       <Drawer.Screen name="Tabs" component={TabNavigator} />
       {/* <Drawer.Screen name="menu" component={DrawerMenu} /> */}
-      <Drawer.Screen name="payment" component={PaymentScreen}/>
+      <Drawer.Screen name="payment" component={PaymentScreen} />
     </Drawer.Navigator>
   );
 }

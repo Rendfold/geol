@@ -13,7 +13,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import GuestStack from './src/screens/GuestStack';
 import DrawerTabNavigator from './src/screens/UserTabDrawer';
 import AuthContext from './src/lib/AuthContext';
-import AllVehiclesProvider from './src/Provider/AllVehiclesProvider';
+import {AllVehiclesProvider} from './src/Provider/AllVehiclesProvider';
 
 const token = null;
 
@@ -93,13 +93,13 @@ const App = () => {
   );
 
   return (
-    // <AllVehiclesProvider>
-    <AuthContext.Provider value={authContext}>
-      <NavigationContainer>
-        {state.userToken == null ? <GuestStack /> : <DrawerTabNavigator />}
-      </NavigationContainer>
-    </AuthContext.Provider>
-    // </AllVehiclesProvider>
+    <AllVehiclesProvider>
+      <AuthContext.Provider value={authContext}>
+        <NavigationContainer>
+          {state.userToken == null ? <GuestStack /> : <DrawerTabNavigator />}
+        </NavigationContainer>
+      </AuthContext.Provider>
+    </AllVehiclesProvider>
   );
 };
 
