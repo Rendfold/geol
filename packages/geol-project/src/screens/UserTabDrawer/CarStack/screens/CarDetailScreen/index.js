@@ -7,16 +7,16 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-
 import {isEmpty} from 'lodash';
+import {DatePicker} from './DatePicker';
 
-function DetailScreen() {
-  const [date, setDate] = useState(new Date());
-
+function CarDetailScreen() {
   return (
     <ScrollView style={{backgroundColor: '#fff', flex: 1}}>
       {/* <ImageBackground source={Geol} style={{ width: '100%', height: 300 }} /> */}
-      <View style={{paddingHorizontal: 16}}></View>
+      <View style={{paddingHorizontal: 16}}>
+        <DatePicker />
+      </View>
       <TouchableOpacity
         onPress={() => signIn({username, password})}
         style={{
@@ -36,4 +36,4 @@ function DetailScreen() {
   );
 }
 
-export default DetailScreen;
+export default CarDetailScreen;

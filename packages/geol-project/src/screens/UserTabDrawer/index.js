@@ -4,7 +4,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import MainStack from './MainStack';
 import PaymentScreen from './MainStack/screens/PaymentScreen';
 import CarStack from './CarStack';
-import {View, TouchableOpacity, Text, Button} from 'react-native';
+import {View, TouchableOpacity, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
 const Drawer = createDrawerNavigator();
