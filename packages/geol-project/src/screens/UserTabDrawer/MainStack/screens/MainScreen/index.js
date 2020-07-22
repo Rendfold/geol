@@ -1,13 +1,15 @@
 import * as React from 'react';
 import {View, Text} from 'react-native';
 import CardComponent from './CardComponent';
+import ScooterComponent from './ScooterComponent';
+import { ScrollView } from 'react-native-gesture-handler';
 
-function MainScreen() {
+function MainScreen({navigation}) {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Main Screen</Text>
-      <CardComponent />
-    </View>
+    <ScrollView style={{ backgroundColor: '#fff',}}>
+      <CardComponent navigation={navigation.navigate}/>
+      <ScooterComponent />
+    </ScrollView>
   );
 }
 
