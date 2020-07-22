@@ -39,12 +39,8 @@ function BicycleDetailScreen({navigation}) {
                 />
               </View>
               <Text style={styles.itemText}>{item.type}</Text>
-              <Text style={styles.itemText}>color: {item.color}</Text>
               <Text style={styles.itemText}>model: {item.model}</Text>
               <Text style={styles.itemText}>price: {item.price}$</Text>
-              <Text style={styles.itemText}>
-                Car Number: {item.licenseNumber}
-              </Text>
               <View
                 onPress={() => {}}
                 style={{
@@ -77,14 +73,14 @@ const styles = StyleSheet.create({
     // backgroundColor: 'green',
     marginVertical: 10,
     width: '100%',
-    height: 350,
+    height: 300,
     // justifyContent: 'center',
     alignItems: 'center',
   },
   container: {
     backgroundColor: '#E2FAF4',
     width: '90%',
-    height: 350,
+    height: 300,
     borderRadius: 16,
     // borderWidth: 1,
     // borderColor: '#58C882',

@@ -13,6 +13,7 @@ import {
   Alert
 } from 'react-native';
 import DatePicker from './DatePicker';
+import { isEmpty} from 'lodash'
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import { AllVehiclesContext } from '../../../../../Context/AllVehiclesContext';
 
@@ -32,8 +33,7 @@ function CarScreen({ route, navigation }) {
   let item = route.params && route.params.data;
   return (
     <ScrollView style={{ backgroundColor: '#fff', flex: 1, }}>
-      <TouchableOpacity style={styles.itemContainer}
-        onPress={() => navigation.navigate('CarScreen', { data: item })}>
+      <View style={styles.itemContainer}>
         <View style={styles.container}>
           <View style={styles.imageContainer}>
             <Image
@@ -43,14 +43,15 @@ function CarScreen({ route, navigation }) {
             />
           </View>
           <Text style={styles.itemText}>{item.type}</Text>
-          <Text style={styles.itemText}>color: {item.color}</Text>
+          {!isEmpty(item.color) ? <Text style={styles.itemText}>color: {item.color}</Text>: null}
           <Text style={styles.itemText}>model: {item.model}</Text>
           <Text style={styles.itemText}>price: {item.price}$</Text>
-          <Text style={styles.itemText}>
+         {!isEmpty(item.licenseNumber) ? <Text style={styles.itemText}>
             Car Number: {item.licenseNumber}
           </Text>
+          : null}
         </View>
-      </TouchableOpacity>
+      </View>
       <View style={{alignItems: 'center', paddingBottom: 15}}>
       <View style={{ paddingHorizontal: 16, alignItems: 'center', justifyContent: 'center', height: 40, borderWidth: 1, borderRadius: 15, borderColor: '#6BA07F', width: '40%'}}>
           <DatePicker handleChange={handleChange} />

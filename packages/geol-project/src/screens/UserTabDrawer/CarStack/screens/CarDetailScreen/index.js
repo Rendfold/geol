@@ -11,9 +11,10 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
+import { isEmpty } from 'lodash';
 import { AllVehiclesContext } from '../../../../../Context/AllVehiclesContext';
 
-function DetailScreen({navigation}) {
+function DetailScreen({ navigation }) {
   const { allVehicles, updateAllVehicles } = useContext(AllVehiclesContext);
 
   console.log('sss', allVehicles.cars);
@@ -27,8 +28,8 @@ function DetailScreen({navigation}) {
       <FlatList
         data={allVehicles.cars}
         renderItem={({ item }) => (
-          <TouchableOpacity style={styles.itemContainer} 
-          onPress={()=> navigation.navigate('CarScreen', {data: item})}>
+          <TouchableOpacity style={styles.itemContainer}
+            onPress={() => navigation.navigate('CarScreen', { data: item })}>
             <View style={styles.container}>
               <View style={styles.imageContainer}>
                 <Image
@@ -38,12 +39,14 @@ function DetailScreen({navigation}) {
                 />
               </View>
               <Text style={styles.itemText}>{item.type}</Text>
-              <Text style={styles.itemText}>color: {item.color}</Text>
+              {!isEmpty(item.licenseNumber) ? <Text style={styles.itemText}>color: {item.color}</Text>
+                : null}
               <Text style={styles.itemText}>model: {item.model}</Text>
               <Text style={styles.itemText}>price: {item.price}$</Text>
-              <Text style={styles.itemText}>
+              {!isEmpty(item.licenseNumber) ? <Text style={styles.itemText}>
                 Car Number: {item.licenseNumber}
-              </Text>
+              </Text> : null
+              }
               <View
                 onPress={() => { }}
                 style={{
@@ -53,7 +56,7 @@ function DetailScreen({navigation}) {
                   borderRadius: 6,
                   marginTop: 20,
                 }}>
-                  <Text style={{color: '#fff', fontSize: 18, textAlign: 'center', lineHeight: 44}}>Book Now</Text>
+                <Text style={{ color: '#fff', fontSize: 18, textAlign: 'center', lineHeight: 44 }}>Book Now</Text>
               </View>
             </View>
           </TouchableOpacity>
