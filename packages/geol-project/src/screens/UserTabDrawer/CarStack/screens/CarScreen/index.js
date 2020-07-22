@@ -16,7 +16,7 @@ import DatePicker from './DatePicker';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import { AllVehiclesContext } from '../../../../../Context/AllVehiclesContext';
 
-function CarScreen({ route }) {
+function CarScreen({ route, navigation }) {
   const { allVehicles, updateAllVehicles } = useContext(AllVehiclesContext);
 
   const [, setDate] = React.useState(new Date());
@@ -25,8 +25,8 @@ function CarScreen({ route }) {
   };
 
   const onSubmit = () => {
-    console.log('ssswwwwww')
-    Alert.alert('Success', [{ text: 'OK' }])
+    Alert.alert('Thank you','Booking was addded successfully.', [{ text: 'OK' }]);
+    navigation.navigate('CarSearchScreen');
   }
 
   let item = route.params && route.params.data;
@@ -86,7 +86,7 @@ function CarScreen({ route }) {
 
       <View style={{alignItems: 'center'}}>
       <TouchableOpacity
-        onPress={() => onSubmit}
+        onPress={() => onSubmit()}
         style={{
           backgroundColor: '#6BA07F',
           width: '50%',
