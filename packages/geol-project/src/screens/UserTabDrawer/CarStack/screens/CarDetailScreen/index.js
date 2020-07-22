@@ -84,11 +84,13 @@ function DetailScreen() {
                   resizeMode="contain"
                 />
               </View>
-              <Text style={styles.itemText}>{item.color}</Text>
-              <Text style={styles.itemText}>{item.model}</Text>
-              <Text style={styles.itemText}>{item.price}</Text>
-              <Text style={styles.itemText}>{item.licenseNumber}</Text>
               <Text style={styles.itemText}>{item.type}</Text>
+              <Text style={styles.itemText}>color: {item.color}</Text>
+              <Text style={styles.itemText}>model: {item.model}</Text>
+              <Text style={styles.itemText}>price: {item.price}</Text>
+              <Text style={styles.itemText}>
+                licenseNumber: {item.licenseNumber}
+              </Text>
             </View>
           </TouchableOpacity>
         )}
@@ -99,25 +101,35 @@ function DetailScreen() {
 
 const styles = StyleSheet.create({
   itemContainer: {
-    backgroundColor: 'green',
-    margin: 5,
+    // backgroundColor: 'green',
+    marginVertical: 10,
     width: '100%',
-    height: 200,
+    height: 300,
     // justifyContent: 'center',
-    // alignItems: 'center',
+    alignItems: 'center',
   },
   container: {
-    backgroundColor: 'pink',
+    backgroundColor: '#E2FAF4',
+    width: 300,
+    height: 300,
+    borderWidth: 1,
+    borderColor: '#58C882',
+    alignItems: 'center',
   },
   imageContainer: {
-    backgroundColor: 'red',
-    width: '90%',
-    height: 100,
-    zIndex: 100,
+    // backgroundColor: 'red',
+    width: '100%',
+    height: 150,
+    zIndex: 10,
   },
   image: {
     width: '100%',
     height: '100%',
+  },
+  itemText: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: '#0B3E32',
   },
 });
 
