@@ -1,5 +1,13 @@
 import * as React from 'react';
-import {View, Text, Button, TextInput, ImageBackground, TouchableOpacity, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  Button,
+  TextInput,
+  ImageBackground,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import AuthContext from '../../../../lib/AuthContext';
 
 import {isEmpty} from 'lodash';

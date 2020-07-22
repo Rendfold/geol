@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import {
   View,
   Text,
@@ -7,23 +7,27 @@ import {
   TouchableOpacity,
   Platform,
   Linking,
+  FlatList,
+  StyleSheet,
 } from 'react-native';
 import DatePicker from './DatePicker';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import {AllVehiclesContext} from '../../../../../Context/AllVehiclesContext';
 
 function DetailScreen() {
-  const [, setDate] = React.useState(new Date());
+  const {allVehicles, updateAllVehicles} = useContext(AllVehiclesContext);
 
+  console.log('sss', allVehicles.cars);
+  const [, setDate] = React.useState(new Date());
   const handleChange = (newDate) => {
     setDate(newDate);
   };
 
   return (
-    <ScrollView style={{ backgroundColor: '#fff', flex: 1 }}>
+    <ScrollView style={{backgroundColor: '#fff', flex: 1}}>
       {/* <ImageBackground source={Geol} style={{ width: '100%', height: 300 }} /> */}
 
-
-      <View style={{ paddingHorizontal: 16 }}>
+      <View style={{paddingHorizontal: 16}}>
         <DatePicker handleChange={handleChange} />
       </View>
       <View>
@@ -31,7 +35,7 @@ function DetailScreen() {
         <Text />
       </View>
       <TouchableOpacity
-        onPress={() => { }}
+        onPress={() => {}}
         style={{
           backgroundColor: '#6BA07F',
           width: '100%',
@@ -41,7 +45,9 @@ function DetailScreen() {
         }}>
         <Button title="Book Now" color="#6BA07F" />
       </TouchableOpacity>
-      <TouchableOpacity
+      <Button
+        title="See At Map"
+        color="#6BA07F"
         style={{
           backgroundColor: '#6BA07F',
           width: '100%',
@@ -62,11 +68,21 @@ function DetailScreen() {
           });
 
           Linking.openURL(url);
-        }}>
-        <Text>See At Map</Text>
-      </TouchableOpacity>
+        }}
+      />
+
+      <FlatList
+        data={allVehicles.cars}
+        renderItem={({item}) => (
+          <TouchableOpacity style={styles.itemContainer}>
+            <Text style={styles.itemText}>{item.color}</Text>
+          </TouchableOpacity>
+        )}
+      />
     </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({});
 
 export default DetailScreen;
