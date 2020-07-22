@@ -105,7 +105,7 @@ function DrawerTabNavigator() {
   return (
     <Drawer.Navigator initialRouteName="Tabs">
       <Drawer.Screen name="Tabs" component={TabNavigator} />
-      <Drawer.Screen name="payment" component={PaymentScreen}/>
+      <Drawer.Screen name="Payment" component={PaymentScreen}/>
     </Drawer.Navigator>
   );
 }
