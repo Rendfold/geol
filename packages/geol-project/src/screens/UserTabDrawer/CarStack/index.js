@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {CarSearchScreen, CarDetailScreen} from './screens';
+// import {} from './screens/CarDetailScreen/index';
 
 const Stack = createStackNavigator();
 
