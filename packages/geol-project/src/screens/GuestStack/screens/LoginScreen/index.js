@@ -6,6 +6,7 @@ import {
   TextInput,
   ImageBackground,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import AuthContext from '../../../../lib/AuthContext';
 
@@ -20,7 +21,7 @@ function LoginScreen({navigation}) {
   const {signIn} = React.useContext(AuthContext);
 
   return (
-    <View style={{backgroundColor: '#fff', flex: 1}}>
+    <ScrollView style={{backgroundColor: '#fff', flex: 1}}>
       <ImageBackground source={Geol} style={{width: '100%', height: 300}} />
       <View style={{paddingHorizontal: 16}}>
         <View style={{height: 35}}>
@@ -66,7 +67,7 @@ function LoginScreen({navigation}) {
           />
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 

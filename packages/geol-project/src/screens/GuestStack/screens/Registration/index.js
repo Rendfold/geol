@@ -15,8 +15,8 @@ function Registration() {
 
   return (
     <View style={{ backgroundColor: '#fff', flex: 1, }}>
-      <View style={{ paddingHorizontal: 16 }}>
-        <View style={{ height: 35 }}>
+      <View style={{ paddingHorizontal: 16, paddingTop: 20 }}>
+        <View style={{ height: 35, paddingVertical: 10 }}>
           <TextInput
             placeholder="Name"
             value={name}
@@ -25,7 +25,7 @@ function Registration() {
             placeholderTextColor="#3E453B"
           />
         </View>
-        <View style={{ height: 35 }}>
+        <View style={{ height: 35, paddingVertical: 10 }}>
           <TextInput
             placeholder="Surname"
             value={surname}
@@ -34,7 +34,7 @@ function Registration() {
             placeholderTextColor="#3E453B"
           />
         </View>
-        <View style={{ height: 35 }}>
+        <View style={{ height: 35, paddingVertical: 10}}>
           <TextInput
             placeholder="Username"
             value={username}
@@ -43,7 +43,7 @@ function Registration() {
             placeholderTextColor="#3E453B"
           />
         </View>
-        <View style={{ height: 35, }}>
+        <View style={{ height: 35, paddingVertical: 10 }}>
           <TextInput
             placeholder="Password"
             value={password}

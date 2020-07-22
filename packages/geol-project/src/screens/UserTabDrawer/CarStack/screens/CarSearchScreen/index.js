@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import {AllVehiclesContext} from '../../../../../Context/AllVehiclesContext';
+import Icon from 'react-native-vector-icons/dist/Ionicons';
+import IconB from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 
 function CarSearchScreen({navigation}) {
   const {allVehicles, updateAllVehicles} = useContext(AllVehiclesContext);
@@ -20,7 +22,8 @@ function CarSearchScreen({navigation}) {
       console.log('ress data--->', response.data);
       updateAllVehicles(response.data);
     });
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   // console.log('datata->111->', data);
 
   return (
@@ -31,12 +34,15 @@ function CarSearchScreen({navigation}) {
         <TouchableOpacity
           style={styles.itemContainer}
           onPress={() => navigation.navigate('carsScreen')}>
+          <Icon name="ios-car-outline" size={30} color="#fff" />
           <Text style={styles.itemText}>Cars</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.itemContainer}>
+          <Icon name="bicycle" size={30} color="#fff" />
           <Text style={styles.itemText}>Bicycle</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.itemContainer}>
+          <IconB name="scooter" size={30} color="#fff" />
           <Text style={styles.itemText}>Electric Scooter</Text>
         </TouchableOpacity>
         {/* <FlatList
@@ -71,11 +77,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row',
   },
   itemText: {
     fontSize: 25,
     fontWeight: 'bold',
     color: '#fff',
+    paddingLeft: 8,
   },
 });
 
