@@ -1,13 +1,11 @@
 import * as React from 'react';
 import { View, Text, Button, ImageBackground, ScrollView, TouchableOpacity } from 'react-native';
-import DatePicker from 'react-native-date-picker'
 
 
 import { isEmpty } from 'lodash';
 
 
 function DetailScreen() {
-    const [date, setDate] = useState(new Date())
 
     return (
         <ScrollView style={{ backgroundColor: '#fff', flex: 1 }}>

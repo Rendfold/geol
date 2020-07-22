@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { Container, Header, View, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body, Icon } from 'native-base';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 const carImage = require('./images/autohauser.png')
 const cards = [
   {
@@ -46,27 +47,29 @@ export default class CardComponent extends Component {
         <View style={{}}>
           <DeckSwiper
             dataSource={cards}
-            renderItem={item =>
-              <Card style={{ elevation: 3 }}>
-                <CardItem>
-                  <Left>
-                    <Thumbnail source={carImage} />
-                    <Body>
-                      <Text>{item.text}</Text>
-                      <Text note>{item.price}
-                        <Text style={{fontSize: 11, color: '#5D5B54'}}>/day</Text>
-                      </Text>
-                    </Body>
-                  </Left>
-                </CardItem>
-                <CardItem cardBody>
-                  <Image style={{ height: 300, flex: 1 }} source={item.image} />
-                </CardItem>
-                <CardItem>
-                  <Icon name="star" style={{ color: '#FFD500' }} />
-                  <Text>{item.name}</Text>
-                </CardItem>
-              </Card>
+            renderItem={ item =>
+              <TouchableOpacity onPress={()=> navigation.navigate('DetailScreen')}>
+                <Card style={{ elevation: 3 }}>
+                  <CardItem>
+                    <Left>
+                      <Thumbnail source={carImage} />
+                      <Body>
+                        <Text>{item.text}</Text>
+                        <Text note>{item.price}
+                          <Text style={{ fontSize: 11, color: '#5D5B54' }}>/day</Text>
+                        </Text>
+                      </Body>
+                    </Left>
+                  </CardItem>
+                  <CardItem cardBody>
+                    <Image style={{ height: 300, flex: 1 }} source={item.image} />
+                  </CardItem>
+                  <CardItem>
+                    <Icon name="star" style={{ color: '#FFD500' }} />
+                    <Text>{item.name}</Text>
+                  </CardItem>
+                </Card>
+              </TouchableOpacity>
             }
           />
 

@@ -2,10 +2,7 @@ import * as React from 'react';
 import {View, Text, Button, TextInput, ImageBackground} from 'react-native';
 import AuthContext from '../../../../lib/AuthContext';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {
-  TouchableHighlight,
-  TouchableOpacity,
-} from 'react-native-gesture-handler';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import {isEmpty} from 'lodash';
 

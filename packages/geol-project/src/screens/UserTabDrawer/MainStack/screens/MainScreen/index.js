@@ -4,10 +4,10 @@ import CardComponent from './CardComponent';
 import ScooterComponent from './ScooterComponent';
 import { ScrollView } from 'react-native-gesture-handler';
 
-function MainScreen() {
+function MainScreen({navigation}) {
   return (
     <ScrollView style={{ backgroundColor: '#fff',}}>
-      <CardComponent />
+      <CardComponent navigation={navigation.navigate}/>
       <ScooterComponent />
     </ScrollView>
   );
