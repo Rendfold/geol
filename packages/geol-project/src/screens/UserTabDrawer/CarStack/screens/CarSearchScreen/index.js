@@ -18,7 +18,7 @@ function CarSearchScreen({navigation}) {
   console.log('pa ra lala lala-->', allVehicles);
   // const [data, setData] = useState();
   useEffect(() => {
-    axios.get('https://ciu2020.herokuapp.com/vehicle/list').then((response) => {
+    axios.get('https://ciu2020.herokuapp.com/vehicle/list').then(response => {
       console.log('ress data--->', response.data);
       updateAllVehicles(response.data);
     });
@@ -37,11 +37,15 @@ function CarSearchScreen({navigation}) {
           <Icon name="ios-car-outline" size={30} color="#fff" />
           <Text style={styles.itemText}>Cars</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.itemContainer}>
+        <TouchableOpacity
+          style={styles.itemContainer}
+          onPress={() => navigation.navigate('bicycleScreen')}>
           <Icon name="bicycle" size={30} color="#fff" />
           <Text style={styles.itemText}>Bicycle</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.itemContainer}>
+        <TouchableOpacity
+          style={styles.itemContainer}
+          onPress={() => navigation.navigate('electricScooter')}>
           <IconB name="scooter" size={30} color="#fff" />
           <Text style={styles.itemText}>Electric Scooter</Text>
         </TouchableOpacity>
