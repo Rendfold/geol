@@ -10,6 +10,9 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import {AllVehiclesContext} from '../../../../../Context/AllVehiclesContext';
+import Icon from 'react-native-vector-icons/dist/Ionicons';
+import IconB from 'react-native-vector-icons/dist/MaterialCommunityIcons';
+
 
 function CarSearchScreen({navigation}) {
   const {allVehicles, updateAllVehicles} = useContext(AllVehiclesContext);
@@ -29,12 +32,15 @@ function CarSearchScreen({navigation}) {
         source={require('../../../../../../images/electric-green-car.jpg')}
         style={styles.imgBackground}>
         <TouchableOpacity style={styles.itemContainer}>
+          <Icon name="ios-car-outline" size={30} color="#fff"/>
           <Text style={styles.itemText}>Cars</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.itemContainer}>
+          <Icon name="bicycle" size={30} color="#fff"/>
           <Text style={styles.itemText}>Bicycle</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.itemContainer}>
+          <IconB name="scooter" size={30} color="#fff"/>
           <Text style={styles.itemText}>Electric Scooter</Text>
         </TouchableOpacity>
         {/* <FlatList
@@ -69,11 +75,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row'
   },
   itemText: {
     fontSize: 25,
     fontWeight: 'bold',
     color: '#fff',
+    paddingLeft: 8
   },
 });
 
