@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {CarSearchScreen, CarDetailScreen, CarScreen} from './screens';
+import BicycleDetailScreen from './screens/BicycleDetailScreen/index';
+import ElecticScooterDetailScreen from './screens/ElecticScooterDetail/index';
 // import {} from './screens/CarDetailScreen/index';
 
 const Stack = createStackNavigator();
@@ -23,8 +25,11 @@ function CarStack() {
           title: 'Book Car',
         }}
       />
-      <Stack.Screen name="bicycleScreen" component={CarSearchScreen} />
-      <Stack.Screen name="electricScooter" component={CarSearchScreen} />
+      <Stack.Screen name="bicycleScreen" component={BicycleDetailScreen} />
+      <Stack.Screen
+        name="electricScooter"
+        component={ElecticScooterDetailScreen}
+      />
       {/* <Stack.Screen name="CarDetailScreen" component={CarDetailScreen} /> */}
     </Stack.Navigator>
   );
