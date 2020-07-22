@@ -13,7 +13,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import GuestStack from './src/screens/GuestStack';
 import DrawerTabNavigator from './src/screens/UserTabDrawer';
 import AuthContext from './src/lib/AuthContext';
-import AllVehiclesProvider from './src/Provider/AllVehiclesProvider';
+import { AllVehiclesProvider } from './src/Provider/AllVehiclesProvider';
 
 const token = null;
 
@@ -71,7 +71,7 @@ const App = () => {
 
   const authContext = React.useMemo(
     () => ({
-      signIn: async data => {
+      signIn: async (data) => {
         // In a production app, we need to send some data (usually username, password) to server and get a token
         // We will also need to handle errors if sign in failed
         // After getting token, we need to persist the token using `AsyncStorage`
@@ -80,7 +80,7 @@ const App = () => {
         dispatch({type: 'SIGN_IN', token: 'dummy-auth-token'});
       },
       signOut: () => dispatch({type: 'SIGN_OUT'}),
-      signUp: async data => {
+      signUp: async (data) => {
         // In a production app, we need to send user data to server and get a token
         // We will also need to handle errors if sign up failed
         // After getting token, we need to persist the token using `AsyncStorage`
@@ -93,13 +93,13 @@ const App = () => {
   );
 
   return (
-    // <AllVehiclesProvider>
-    <AuthContext.Provider value={authContext}>
-      <NavigationContainer>
-        {state.userToken == null ? <GuestStack /> : <DrawerTabNavigator />}
-      </NavigationContainer>
-    </AuthContext.Provider>
-    // </AllVehiclesProvider>
+    <AllVehiclesProvider>
+      <AuthContext.Provider value={authContext}>
+        <NavigationContainer>
+          {state.userToken == null ? <GuestStack /> : <DrawerTabNavigator />}
+        </NavigationContainer>
+      </AuthContext.Provider>
+    </AllVehiclesProvider>
   );
 };
 
