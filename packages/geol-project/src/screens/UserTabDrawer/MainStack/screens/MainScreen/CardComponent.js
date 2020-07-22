@@ -27,7 +27,11 @@ export default class CardComponent extends Component {
   render() {
     return (
       <Container style={{flex: 1, width: '90%'}}>
-        <Header />
+        <Text
+        style={{fontSize: 22, color: '#000', fontWeight: "bold", fontFamily: "Cochin", paddingVertical: 10 }}
+        >
+          Popular Cars
+        </Text>
         <View style={{}}>
           <DeckSwiper
             dataSource={cards}

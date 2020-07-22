@@ -4,8 +4,7 @@ import CardComponent from './CardComponent';
 
 function MainScreen() {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Main Screen</Text>
+    <View style={{flex: 1, backgroundColor: '#fff', paddingHorizontal: 16}}>
       <CardComponent />
       
     </View>
