@@ -18,7 +18,7 @@ function DetailScreen() {
         <DatePicker />
       </View>
       <TouchableOpacity
-        onPress={() => signIn({username, password})}
+        onPress={() => {}}
         style={{
           backgroundColor: '#6BA07F',
           width: '100%',
@@ -29,7 +29,6 @@ function DetailScreen() {
         <Button
           title="Book Now"
           color="#fff"
-          disabled={!isEmpty(username) && !isEmpty(password) ? false : true}
         />
       </TouchableOpacity>
     </ScrollView>
