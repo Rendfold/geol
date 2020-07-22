@@ -13,6 +13,8 @@ function Registration() {
 
   const { signIn } = React.useContext(AuthContext);
 
+  let disabled = !isEmpty(name) && !isEmpty(surname) && !isEmpty(username) && !isEmpty(password);
+
   return (
     <View style={{ backgroundColor: '#fff', flex: 1, }}>
       <View style={{ paddingHorizontal: 16, paddingTop: 20 }}>
@@ -34,7 +36,7 @@ function Registration() {
             placeholderTextColor="#3E453B"
           />
         </View>
-        <View style={{ height: 35, paddingVertical: 10}}>
+        <View style={{ height: 35, paddingVertical: 10 }}>
           <TextInput
             placeholder="Username"
             value={username}
@@ -56,12 +58,19 @@ function Registration() {
           />
         </View>
         <TouchableOpacity
-          onPress={() => signIn({ username, password })}
-          style={{ backgroundColor: '#6BA07F', width: '100%', height: 44, borderRadius: 6, marginTop: 20 }}>
+          onPress={() => signIn({name, surname, username, password })}
+          style={{
+            backgroundColor: '#6BA07F',
+            opacity: !disabled ? 0.5 : 1,
+            width: '100%',
+            height: 44,
+            borderRadius: 6,
+            marginTop: 20,
+          }}
+          disabled={disabled ? false : true}
+        >
           <Button title="Registration"
-            type="clear"
             color="#fff"
-            disabled={!isEmpty(username) && !isEmpty(password) ? false : true}
           />
         </TouchableOpacity>
       </View>
