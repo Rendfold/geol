@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     borderRadius: 6,
     backgroundColor: 'rgba(107, 160, 127, 0.7)',
-    opacity: 0.5,
     textAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
