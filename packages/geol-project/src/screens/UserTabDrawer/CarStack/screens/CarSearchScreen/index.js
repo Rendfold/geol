@@ -16,7 +16,7 @@ function CarSearchScreen({navigation}) {
   // console.log('pa ra lala lala-->', allVehicles);
   const [data, setData] = useState();
   useEffect(() => {
-    axios.get('https://ciu2020.herokuapp.com/vehicle/list').then(response => {
+    axios.get('https://ciu2020.herokuapp.com/vehicle/list').then((response) => {
       console.log('ress data--->', response.data);
       setData(response.data);
       console.log('datata->', data);
@@ -32,7 +32,9 @@ function CarSearchScreen({navigation}) {
         <FlatList
           data={data}
           renderItem={({item}) => (
-            <TouchableOpacity style={styles.itemContainer} onPress={() => navigation.navigate('CarDetailScreen')}>
+            <TouchableOpacity
+              style={styles.itemContainer}
+              onPress={() => navigation.navigate('CarDetailScreen')}>
               <Text style={styles.itemText}>{item.type}</Text>
             </TouchableOpacity>
           )}
