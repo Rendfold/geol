@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {CarSearchScreen} from './screens';
+import {CarSearchScreen, CarDetailScreen} from './screens';
 
 const Stack = createStackNavigator();
 
@@ -8,6 +8,7 @@ function CarStack() {
   return (
     <Stack.Navigator initialRouteName="CarSearchScreen">
       <Stack.Screen name="CarSearchScreen" component={CarSearchScreen} />
+      <Stack.Screen name="CarDetailScreen" component={CarDetailScreen} />
     </Stack.Navigator>
   );
 }
