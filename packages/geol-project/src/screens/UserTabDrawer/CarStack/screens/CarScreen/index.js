@@ -15,14 +15,14 @@ import DatePicker from './DatePicker';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import { AllVehiclesContext } from '../../../../../Context/AllVehiclesContext';
 
-function CarScreen() {
+function CarScreen({data}) {
   const { allVehicles, updateAllVehicles } = useContext(AllVehiclesContext);
 
   const [, setDate] = React.useState(new Date());
   const handleChange = newDate => {
     setDate(newDate);
   };
-
+// console.log(data,'1111')
   return (
     <ScrollView style={{ backgroundColor: '#fff', flex: 1 }}>
       <View style={{ paddingHorizontal: 16 }}>

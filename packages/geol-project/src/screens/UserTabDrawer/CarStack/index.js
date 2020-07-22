@@ -10,13 +10,12 @@ function CarStack() {
     <Stack.Navigator initialRouteName="CarSearchScreen">
       <Stack.Screen name="CarSearchScreen" component={CarSearchScreen} />
       <Stack.Screen
-        name="carScreen"
+        name="CarScreen"
         component={CarScreen}
         options={{
           title: 'Car Info',
         }}
       />
-
       <Stack.Screen
         name="carsScreen"
         component={CarDetailScreen}
