@@ -11,7 +11,7 @@ import {
 import axios from 'axios';
 import {AllVehiclesContext} from '../../../../../Context/AllVehiclesContext';
 
-function CarSearchScreen() {
+function CarSearchScreen({navigation}) {
   // const {allVehicles, updateAllVehicles} = useContext(AllVehiclesContext);
   // console.log('pa ra lala lala-->', allVehicles);
   const [data, setData] = useState();
@@ -32,7 +32,7 @@ function CarSearchScreen() {
         <FlatList
           data={data}
           renderItem={({item}) => (
-            <TouchableOpacity style={styles.itemContainer}>
+            <TouchableOpacity style={styles.itemContainer} onPress={() => navigation.navigate('CarDetailScreen')}>
               <Text style={styles.itemText}>{item.type}</Text>
             </TouchableOpacity>
           )}

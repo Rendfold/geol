@@ -17,21 +17,6 @@ function CarDetailScreen() {
       <View style={{paddingHorizontal: 16}}>
         <DatePicker />
       </View>
-      <TouchableOpacity
-        onPress={() => signIn({username, password})}
-        style={{
-          backgroundColor: '#6BA07F',
-          width: '100%',
-          height: 44,
-          borderRadius: 6,
-          marginTop: 20,
-        }}>
-        <Button
-          title="Book Now"
-          color="#fff"
-          disabled={!isEmpty(username) && !isEmpty(password) ? false : true}
-        />
-      </TouchableOpacity>
     </ScrollView>
   );
 }

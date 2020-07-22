@@ -66,6 +66,7 @@ export default class CardComponent extends Component {
             dataSource={cards}
             renderItem={(item) => (
               <TouchableOpacity
+                activeOpacity={1}
                 onPress={() => this.props.navigation.navigate('DetailScreen')}>
                 <Card style={{elevation: 3}}>
                   <CardItem>
