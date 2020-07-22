@@ -10,10 +10,10 @@ function CarStack() {
     <Stack.Navigator initialRouteName="CarSearchScreen">
       <Stack.Screen name="CarSearchScreen" component={CarSearchScreen} />
 
-      <Stack.Screen name="carsScreen" component={CarSearchScreen} />
+      <Stack.Screen name="carsScreen" component={CarDetailScreen} />
       <Stack.Screen name="bicycleScreen" component={CarSearchScreen} />
       <Stack.Screen name="electricScooter" component={CarSearchScreen} />
-      <Stack.Screen name="CarDetailScreen" component={CarDetailScreen} />
+      {/* <Stack.Screen name="CarDetailScreen" component={CarDetailScreen} /> */}
     </Stack.Navigator>
   );
 }

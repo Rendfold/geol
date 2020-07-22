@@ -28,7 +28,9 @@ function CarSearchScreen({navigation}) {
       <ImageBackground
         source={require('../../../../../../images/electric-green-car.jpg')}
         style={styles.imgBackground}>
-        <TouchableOpacity style={styles.itemContainer}>
+        <TouchableOpacity
+          style={styles.itemContainer}
+          onPress={() => navigation.navigate('carsScreen')}>
           <Text style={styles.itemText}>Cars</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.itemContainer}>

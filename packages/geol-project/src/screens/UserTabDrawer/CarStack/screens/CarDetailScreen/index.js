@@ -1,12 +1,23 @@
-import * as React from 'react';
-import {View, Text, Button, ScrollView, TouchableOpacity} from 'react-native';
+import React, {useEffect, useState, useContext} from 'react';
+import {
+  View,
+  Text,
+  Button,
+  ScrollView,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet,
+} from 'react-native';
 import DatePicker from './DatePicker';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import {AllVehiclesContext} from '../../../../../Context/AllVehiclesContext';
 
 function DetailScreen() {
-  const [, setDate] = React.useState(new Date());
+  const {allVehicles, updateAllVehicles} = useContext(AllVehiclesContext);
 
-  const handleChange = (newDate) => {
+  console.log('sss', allVehicles.cars);
+  const [, setDate] = React.useState(new Date());
+  const handleChange = newDate => {
     setDate(newDate);
   };
 
@@ -31,8 +42,19 @@ function DetailScreen() {
         }}>
         <Button title="Book Now" color="#fff" />
       </TouchableOpacity>
+
+      <FlatList
+        data={allVehicles.cars}
+        renderItem={({item}) => (
+          <TouchableOpacity style={styles.itemContainer}>
+            <Text style={styles.itemText}>{item.color}</Text>
+          </TouchableOpacity>
+        )}
+      />
     </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({});
 
 export default DetailScreen;
