@@ -26,7 +26,7 @@ function CarScreen({ route, navigation }) {
   };
 
   const onSubmit = () => {
-    Alert.alert('Thank you','Booking was addded successfully.', [{ text: 'OK' }]);
+    Alert.alert('Thank you','Order was addded successfully.', [{ text: 'OK' }]);
     navigation.navigate('CarSearchScreen');
   }
 
@@ -95,7 +95,7 @@ function CarScreen({ route, navigation }) {
           borderRadius: 6,
           marginTop: 20,
         }}>
-           <Text style={{color: '#fff', fontSize: 18, textAlign: 'center', lineHeight: 44}}>Finish</Text>
+           <Text style={{color: '#fff', fontSize: 18, textAlign: 'center', lineHeight: 44}}>Order</Text>
       </TouchableOpacity>
       </View>
     </ScrollView>

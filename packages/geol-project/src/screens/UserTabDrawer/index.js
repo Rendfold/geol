@@ -6,6 +6,7 @@ import PaymentScreen from './MainStack/screens/PaymentScreen';
 import CarStack from './CarStack';
 import {View, TouchableOpacity, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import { OrderList } from './MainStack/screens';
 
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
@@ -106,6 +107,7 @@ function DrawerTabNavigator() {
     <Drawer.Navigator initialRouteName="Tabs">
       <Drawer.Screen name="Main" component={TabNavigator} />
       <Drawer.Screen name="Payment" component={PaymentScreen}/>
+      <Drawer.Screen name="Order List" component={OrderList}/>
     </Drawer.Navigator>
   );
 }
