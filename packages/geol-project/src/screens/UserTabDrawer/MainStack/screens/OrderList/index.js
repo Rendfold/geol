@@ -14,11 +14,9 @@ import {
 import { isEmpty } from 'lodash';
 import { OrderListContext } from '../../../../../Context/OrderListContext';
 import axios from 'axios';
-
 function OrderList({ navigation }) {
   const { orderList, updateOrderList } = useContext(OrderListContext);
   console.log('aqane geeshveba data------>', orderList);
-
   useEffect(() => {
     axios.get('https://ciu2020.herokuapp.com/route/list').then(response => {
       console.log('ress data car ord--->', response.data);
@@ -26,20 +24,17 @@ function OrderList({ navigation }) {
       // updateAllVehicles(response.data);
     });
   }, []);
-
   // console.log('sss', allVehicles.cars);
   const [, setDate] = React.useState(new Date());
   const handleChange = newDate => {
     setDate(newDate);
   };
-
   return (
     <View style={{ backgroundColor: '#fff', flex: 1, }}>
       <FlatList
         data={orderList}
         renderItem={({ item }) => (
-          <TouchableOpacity
-            style={styles.itemContainer}>
+          <TouchableOpacity style={styles.itemContainer}>
             {console.log(item, 'item')}
             <View style={styles.container}>
               <View style={styles.imageContainer}>
@@ -63,24 +58,25 @@ function OrderList({ navigation }) {
             </View>
           </TouchableOpacity>
         )}
-        ListHeaderComponent={<View
-          style={{
-            marginTop: 50,
-            height: 40,
-            alignItems: 'center',
-            width: '100%',
-            flex: 1,
-            borderBottomColor: '#D5D5D5',
-            borderBottomWidth: 1,
-            flex: 1
-          }}>
-          <Text style={{ fontSize: 16 }}>Order List</Text>
-        </View>}
+        ListHeaderComponent={
+          <View
+            style={{
+              marginTop: 50,
+              height: 40,
+              alignItems: 'center',
+              width: '100%',
+              flex: 1,
+              borderBottomColor: '#D5D5D5',
+              borderBottomWidth: 1,
+              flex: 1
+            }}>
+            <Text style={{ fontSize: 16 }}>Order List</Text>
+          </View>
+        }
       />
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   itemContainer: {
     marginVertical: 10,
@@ -111,5 +107,4 @@ const styles = StyleSheet.create({
     color: '#0B3E32',
   },
 });
-
 export default OrderList;

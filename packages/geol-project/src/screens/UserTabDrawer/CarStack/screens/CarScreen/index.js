@@ -27,17 +27,6 @@ function CarScreen({route, navigation}) {
     setDate(newDate);
   };
 
-  // const onSubmit = () => {
-  //   Alert.alert('Thank you', 'Order was addded successfully.', [{text: 'OK'}]);
-  //   navigation.navigate('CarSearchScreen');
-  // };
-  // const onSubmit = () => {
-  //   Alert.alert('Thank you', 'Booking was addded successfully.', [
-  //     {text: 'OK'},
-  //   ]);
-  //   navigation.navigate('CarSearchScreen');
-  // };
-
   const onSubmit = id => {
     axios
       .post('https://ciu2020.herokuapp.com/route/create', {
