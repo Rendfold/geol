@@ -25,7 +25,7 @@ function OrderList({navigation}) {
       updateOrderList(response.data);
       // updateAllVehicles(response.data);
     });
-  }, []);
+  }, [orderList]);
 
   // console.log('sss', allVehicles.cars);
   const [, setDate] = React.useState(new Date());
