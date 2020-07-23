@@ -18,7 +18,7 @@ function CustomTabBar({navigation, state, descriptors}) {
         flexDirection: 'row',
         borderTopWidth: 1,
         borderTopColor: '#EAEAEA',
-        height: 50,
+        height: 80,
         justifyContent: 'center',
         alignItems: 'center',
       }}>
@@ -67,7 +67,7 @@ function CustomTabBar({navigation, state, descriptors}) {
             testID={options.tabBarTestID}
             onPress={onPress}
             onLongPress={onLongPress}
-            style={{flex: 1, alignItems: 'center'}}>
+            style={{flex: 1, alignItems: 'center', paddingBottom: 10}}>
             <Icon
               name={iconName()}
               size={30}
