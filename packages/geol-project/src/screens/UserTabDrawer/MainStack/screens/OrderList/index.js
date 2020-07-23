@@ -20,14 +20,11 @@ function OrderList({navigation}) {
   console.log('aqane geeshveba data------>', orderList);
 
   useEffect(() => {
-    axios
-      .get(
-        'https://ciu2020.herokuapp.com/vehicle/personal/5f15f86d9f2523efb0f0bb5e',
-      )
-      .then(response => {
-        console.log('ress data car ord--->', response.data);
-        // updateAllVehicles(response.data);
-      });
+    axios.get('https://ciu2020.herokuapp.com/route/list').then(response => {
+      console.log('ress data car ord--->', response.data);
+      updateOrderList(response.data);
+      // updateAllVehicles(response.data);
+    });
   }, []);
 
   // console.log('sss', allVehicles.cars);
