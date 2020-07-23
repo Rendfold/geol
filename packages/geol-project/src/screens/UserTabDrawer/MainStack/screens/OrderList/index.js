@@ -25,7 +25,7 @@ function OrderList({ navigation }) {
 
   return (
     <ScrollView style={{ backgroundColor: '#fff', flex: 1 }}>
-        <View style={{paddingTop: 40,height: 40, alignItems: 'center', width: '100%', flex:1}}>
+        <View style={{marginTop: 50,height: 40, alignItems: 'center', width: '100%', flex:1, borderBottomColor: '#D5D5D5', borderBottomWidth: 1}}>
         <Text style={{fontSize: 16}}>Order List</Text>
         </View>
        
