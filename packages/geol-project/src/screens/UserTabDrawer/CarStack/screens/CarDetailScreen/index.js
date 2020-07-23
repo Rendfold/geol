@@ -70,12 +70,12 @@ const styles = StyleSheet.create({
   itemContainer: {
     marginVertical: 10,
     width: '100%',
-    height: 350,
+    height: 370,
     alignItems: 'center',
   },
   container: {
     width: '90%',
-    height: 350,
+    height: 370,
     borderRadius: 16,
     borderWidth: 1,
     borderColor: '#58C882',
@@ -92,9 +92,9 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   itemText: {
-    fontWeight: 'bold',
     fontSize: 20,
     color: '#0B3E32',
+    lineHeight: 28
   },
 });
 

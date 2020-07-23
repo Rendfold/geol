@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import DatePicker from './DatePicker';
 import {isEmpty} from 'lodash';
-import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import Icon from 'react-native-vector-icons/dist/Ionicons';
 import {AllVehiclesContext} from '../../../../../Context/AllVehiclesContext';
 import axios from 'axios';
 import {OrderListContext} from '../../../../../Context/OrderListContext';
@@ -27,6 +27,10 @@ function CarScreen({route, navigation}) {
     setDate(newDate);
   };
 
+  const onSubmit = () => {
+    Alert.alert('Thank you', 'Order was addded successfully.', [{text: 'OK'}]);
+    navigation.navigate('CarSearchScreen');
+  };
   // const onSubmit = () => {
   //   Alert.alert('Thank you', 'Booking was addded successfully.', [
   //     {text: 'OK'},
@@ -74,52 +78,100 @@ function CarScreen({route, navigation}) {
           ) : null}
         </View>
       </View>
-      <View style={{alignItems: 'center', paddingBottom: 15}}>
-        <View
-          style={{
-            paddingHorizontal: 16,
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: 40,
-            borderWidth: 1,
-            borderRadius: 15,
-            borderColor: '#6BA07F',
-            width: '40%',
-          }}>
-          <DatePicker handleChange={handleChange} />
+      <View
+        style={{
+          flexDirection: 'row',
+          paddingHorizontal: 16,
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}>
+        <Text style={{fontSize: 18, paddingRight: 15, paddingBottom: 10}}>
+          Booking Start Date
+        </Text>
+        <View style={{alignItems: 'flex-end', paddingBottom: 15}}>
+          <View
+            style={{
+              paddingHorizontal: 16,
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: 40,
+              borderWidth: 1,
+              borderRadius: 15,
+              borderColor: '#6BA07F',
+              width: '100%',
+            }}>
+            <DatePicker handleChange={handleChange} />
+          </View>
+        </View>
+      </View>
+
+      <View
+        style={{
+          flexDirection: 'row',
+          paddingHorizontal: 16,
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}>
+        <Text style={{fontSize: 18, paddingRight: 15, paddingBottom: 10}}>
+          Booking End Date
+        </Text>
+        <View style={{alignItems: 'center', paddingBottom: 15}}>
+          <View
+            style={{
+              paddingHorizontal: 16,
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: 40,
+              borderWidth: 1,
+              borderRadius: 15,
+              borderColor: '#6BA07F',
+              width: '100%',
+            }}>
+            <DatePicker handleChange={handleChange} />
+          </View>
         </View>
       </View>
       {item.location ? (
-        <Button
-          title="See At Map"
-          color="#6BA07F"
+        <View
           style={{
-            backgroundColor: '#6BA07F',
-            width: '100%',
-            height: 44,
-            borderRadius: 6,
-            marginTop: 20,
-          }}
-          onPress={() => {
-            const scheme = Platform.select({
-              ios: 'maps:0,0?q=',
-              android: 'geo:0,0?q=',
-            });
-            const latLng = `${item.location[0]},${item.location[1]}`;
-            const label = 'Custom Label';
-            const url = Platform.select({
-              ios: `${scheme}${label}@${latLng}`,
-              android: `${scheme}${latLng}(${label})`,
-            });
+            flexDirection: 'row',
+            paddingHorizontal: 16,
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginVertical: 10,
+          }}>
+          <Icon name="location-sharp" color="#6BA07F" size={30} />
+          <Button
+            title="See At Map"
+            color="#6BA07F"
+            style={{
+              backgroundColor: '#6BA07F',
+              width: '100%',
+              height: 44,
+              borderRadius: 6,
+              marginTop: 20,
+            }}
+            onPress={() => {
+              const scheme = Platform.select({
+                ios: 'maps:0,0?q=',
+                android: 'geo:0,0?q=',
+              });
+              const latLng = `${item.location[0]},${item.location[1]}`;
+              const label = 'Custom Label';
+              const url = Platform.select({
+                ios: `${scheme}${label}@${latLng}`,
+                android: `${scheme}${latLng}(${label})`,
+              });
 
-            Linking.openURL(url);
-          }}
-        />
+              Linking.openURL(url);
+            }}
+          />
+        </View>
       ) : null}
 
       <View style={{alignItems: 'center'}}>
         <TouchableOpacity
-          onPress={() => onSubmit(item._id)}
+          onPress={() => onSubmit()}
           style={{
             backgroundColor: '#6BA07F',
             width: '50%',
@@ -146,15 +198,18 @@ const styles = StyleSheet.create({
   itemContainer: {
     marginVertical: 10,
     width: '100%',
-    height: 300,
+    height: 320,
     alignItems: 'center',
+    marginBottom: 20,
   },
   container: {
-    backgroundColor: '#E2FAF4',
     width: '90%',
-    height: 300,
+    height: 320,
     borderRadius: 16,
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#58C882',
+    paddingVertical: 15,
   },
   imageContainer: {
     width: '100%',
@@ -166,9 +221,9 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   itemText: {
-    fontWeight: 'bold',
     fontSize: 20,
     color: '#0B3E32',
+    lineHeight: 28,
   },
 });
 
