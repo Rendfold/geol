@@ -48,13 +48,12 @@ function OrderList({navigation}) {
         }}>
         <Text style={{fontSize: 16}}>Order List</Text>
       </View> */}
-      {console.log('orderList111',orderList)}
+      {console.log('orderList111', orderList)}
       <FlatList
         data={orderList}
         renderItem={({item}) => (
-          <TouchableOpacity
-            style={styles.itemContainer}>
-              {console.log(item,'item')}
+          <TouchableOpacity style={styles.itemContainer}>
+            {console.log(item, 'item')}
             <View style={styles.container}>
               <View style={styles.imageContainer}>
                 <Image
@@ -100,7 +99,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 150,
     zIndex: 10,
-    paddingVertical: 15
+    paddingVertical: 15,
   },
   image: {
     width: '100%',
