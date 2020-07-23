@@ -34,8 +34,8 @@ function OrderList({navigation}) {
   };
 
   return (
-    <ScrollView style={{backgroundColor: '#fff', flex: 1}}>
-      <View
+    <View style={{backgroundColor: '#fff', flex: 1, marginTop: 40}}>
+      {/* <View
         style={{
           marginTop: 50,
           height: 40,
@@ -44,59 +44,41 @@ function OrderList({navigation}) {
           flex: 1,
           borderBottomColor: '#D5D5D5',
           borderBottomWidth: 1,
+          flex: 1
         }}>
         <Text style={{fontSize: 16}}>Order List</Text>
-      </View>
-
+      </View> */}
+      {console.log('orderList111',orderList)}
       <FlatList
         data={orderList}
         renderItem={({item}) => (
           <TouchableOpacity
-            style={styles.itemContainer}
-            onPress={() => navigation.navigate('CarScreen', {data: item})}>
+            style={styles.itemContainer}>
+              {console.log(item,'item')}
             <View style={styles.container}>
               <View style={styles.imageContainer}>
                 <Image
-                  source={{uri: item.imageUrl}}
+                  source={{uri: item.vehicle.imageUrl}}
                   style={styles.image}
                   resizeMode="contain"
                 />
               </View>
               <Text style={styles.itemText}>{item.type}</Text>
-              {!isEmpty(item.licenseNumber) ? (
-                <Text style={styles.itemText}>color: {item.color}</Text>
+              {!isEmpty(item.vehicle.licenseNumber) ? (
+                <Text style={styles.itemText}>color: {item.vehicle.color}</Text>
               ) : null}
-              <Text style={styles.itemText}>model: {item.model}</Text>
-              <Text style={styles.itemText}>price: {item.price}$</Text>
-              {!isEmpty(item.licenseNumber) ? (
+              <Text style={styles.itemText}>model: {item.vehicle.model}</Text>
+              <Text style={styles.itemText}>price: {item.vehicle.price}$</Text>
+              {!isEmpty(item.vehicle.licenseNumber) ? (
                 <Text style={styles.itemText}>
-                  Car Number: {item.licenseNumber}
+                  Car Number: {item.vehicle.licenseNumber}
                 </Text>
               ) : null}
-              <View
-                onPress={() => {}}
-                style={{
-                  backgroundColor: '#6BA07F',
-                  width: '80%',
-                  height: 44,
-                  borderRadius: 6,
-                  marginTop: 20,
-                }}>
-                <Text
-                  style={{
-                    color: '#fff',
-                    fontSize: 18,
-                    textAlign: 'center',
-                    lineHeight: 44,
-                  }}>
-                  Book Now
-                </Text>
-              </View>
             </View>
           </TouchableOpacity>
         )}
       />
-    </ScrollView>
+    </View>
   );
 }
 
@@ -104,13 +86,13 @@ const styles = StyleSheet.create({
   itemContainer: {
     marginVertical: 10,
     width: '100%',
-    height: 350,
+    height: 300,
     alignItems: 'center',
   },
   container: {
     backgroundColor: '#E2FAF4',
     width: '90%',
-    height: 350,
+    height: 300,
     borderRadius: 16,
     alignItems: 'center',
   },
@@ -118,6 +100,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 150,
     zIndex: 10,
+    paddingVertical: 15
   },
   image: {
     width: '100%',
