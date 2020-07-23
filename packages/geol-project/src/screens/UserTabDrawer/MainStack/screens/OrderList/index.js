@@ -47,33 +47,33 @@ function OrderList({navigation}) {
         }}>
         <Text style={{fontSize: 16}}>Order List</Text>
       </View>
-      {orderList, 'orderList'}
-
-      {/* <FlatList
-        data={orderList}
-        renderItem={({ item }) => (
-          <TouchableOpacity style={styles.itemContainer}
-            onPress={() => navigation.navigate('CarScreen', { data: item })}>
-              {item, '111aaaa'}
+      {console.log('orderList111',orderList.vehicle)}
+      <FlatList
+        data={orderList.vehicle}
+        renderItem={({item}) => (
+          <TouchableOpacity
+            style={styles.itemContainer}>
             <View style={styles.container}>
               <View style={styles.imageContainer}>
                 <Image
-                  source={{ uri: item.imageUrl }}
+                  source={{uri: item.imageUrl}}
                   style={styles.image}
                   resizeMode="contain"
                 />
               </View>
               <Text style={styles.itemText}>{item.type}</Text>
-              {!isEmpty(item.licenseNumber) ? <Text style={styles.itemText}>color: {item.color}</Text>
-                : null}
+              {!isEmpty(item.licenseNumber) ? (
+                <Text style={styles.itemText}>color: {item.color}</Text>
+              ) : null}
               <Text style={styles.itemText}>model: {item.model}</Text>
               <Text style={styles.itemText}>price: {item.price}$</Text>
-              {!isEmpty(item.licenseNumber) ? <Text style={styles.itemText}>
-                Car Number: {item.licenseNumber}
-              </Text> : null
-              }
+              {!isEmpty(item.licenseNumber) ? (
+                <Text style={styles.itemText}>
+                  Car Number: {item.licenseNumber}
+                </Text>
+              ) : null}
               <View
-                onPress={() => { }}
+                onPress={() => {}}
                 style={{
                   backgroundColor: '#6BA07F',
                   width: '80%',
@@ -81,12 +81,20 @@ function OrderList({navigation}) {
                   borderRadius: 6,
                   marginTop: 20,
                 }}>
-                <Text style={{ color: '#fff', fontSize: 18, textAlign: 'center', lineHeight: 44 }}>Book Now</Text>
+                <Text
+                  style={{
+                    color: '#fff',
+                    fontSize: 18,
+                    textAlign: 'center',
+                    lineHeight: 44,
+                  }}>
+                  Book Now
+                </Text>
               </View>
             </View>
           </TouchableOpacity>
         )}
-      /> */}
+      />
     </ScrollView>
   );
 }
