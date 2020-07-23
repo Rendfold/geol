@@ -149,7 +149,7 @@ function CarScreen({route, navigation}) {
               textAlign: 'center',
               lineHeight: 44,
             }}>
-            Finish
+            Order
           </Text>
         </TouchableOpacity>
       </View>

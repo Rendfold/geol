@@ -70,24 +70,21 @@ function BicycleDetailScreen({navigation}) {
 
 const styles = StyleSheet.create({
   itemContainer: {
-    // backgroundColor: 'green',
     marginVertical: 10,
     width: '100%',
-    height: 300,
-    // justifyContent: 'center',
+    height: 320,
     alignItems: 'center',
   },
   container: {
-    backgroundColor: '#E2FAF4',
     width: '90%',
-    height: 300,
+    height: 320,
     borderRadius: 16,
-    // borderWidth: 1,
-    // borderColor: '#58C882',
+    borderWidth: 1,
+    borderColor: '#58C882',
     alignItems: 'center',
   },
   imageContainer: {
-    // backgroundColor: 'red',
+    paddingVertical: 15,
     width: '100%',
     height: 150,
     zIndex: 10,

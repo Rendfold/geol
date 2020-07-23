@@ -6,6 +6,7 @@ import PaymentScreen from './MainStack/screens/PaymentScreen';
 import CarStack from './CarStack';
 import {View, TouchableOpacity, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import { OrderList } from './MainStack/screens';
 
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
@@ -17,7 +18,7 @@ function CustomTabBar({navigation, state, descriptors}) {
         flexDirection: 'row',
         borderTopWidth: 1,
         borderTopColor: '#EAEAEA',
-        height: 50,
+        height: 80,
         justifyContent: 'center',
         alignItems: 'center',
       }}>
@@ -66,7 +67,7 @@ function CustomTabBar({navigation, state, descriptors}) {
             testID={options.tabBarTestID}
             onPress={onPress}
             onLongPress={onLongPress}
-            style={{flex: 1, alignItems: 'center'}}>
+            style={{flex: 1, alignItems: 'center', paddingBottom: 10}}>
             <Icon
               name={iconName()}
               size={30}
@@ -106,6 +107,7 @@ function DrawerTabNavigator() {
     <Drawer.Navigator initialRouteName="Tabs">
       <Drawer.Screen name="Main" component={TabNavigator} />
       <Drawer.Screen name="Payment" component={PaymentScreen}/>
+      <Drawer.Screen name="Order List" component={OrderList}/>
     </Drawer.Navigator>
   );
 }

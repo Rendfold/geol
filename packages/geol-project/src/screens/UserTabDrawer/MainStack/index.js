@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {MainScreen, DetailScreen,DetailCarScreen, PaymentScreen} from './screens';
+import {MainScreen, DetailScreen,DetailCarScreen, PaymentScreen, OrderList} from './screens';
 
 const Stack = createStackNavigator();
 
@@ -26,6 +26,11 @@ function MainStack() {
         name="PaymentScreen"
         component={PaymentScreen}
         options={{title: 'Payment'}}
+      />
+        <Stack.Screen
+        name="OrderList"
+        component={OrderList}
+        options={{title: 'Order List'}}
       />
     </Stack.Navigator>
   );

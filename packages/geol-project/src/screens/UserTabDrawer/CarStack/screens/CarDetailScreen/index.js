@@ -68,24 +68,21 @@ function DetailScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   itemContainer: {
-    // backgroundColor: 'green',
     marginVertical: 10,
     width: '100%',
     height: 350,
-    // justifyContent: 'center',
     alignItems: 'center',
   },
   container: {
-    backgroundColor: '#E2FAF4',
     width: '90%',
     height: 350,
     borderRadius: 16,
-    // borderWidth: 1,
-    // borderColor: '#58C882',
+    borderWidth: 1,
+    borderColor: '#58C882',
     alignItems: 'center',
   },
   imageContainer: {
-    // backgroundColor: 'red',
+    paddingVertical: 20,
     width: '100%',
     height: 150,
     zIndex: 10,
