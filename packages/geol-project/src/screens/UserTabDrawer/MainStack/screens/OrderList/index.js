@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import {
   View,
   Text,
@@ -11,11 +11,11 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
-import { isEmpty } from 'lodash';
-import { OrderListContext } from '../../../../../Context/OrderListContext';
+import {isEmpty} from 'lodash';
+import {OrderListContext} from '../../../../../Context/OrderListContext';
 import axios from 'axios';
-function OrderList({ navigation }) {
-  const { orderList, updateOrderList } = useContext(OrderListContext);
+function OrderList({navigation}) {
+  const {orderList, updateOrderList} = useContext(OrderListContext);
   console.log('aqane geeshveba data------>', orderList);
   useEffect(() => {
     axios.get('https://ciu2020.herokuapp.com/route/list').then(response => {
@@ -23,19 +23,20 @@ function OrderList({ navigation }) {
       updateOrderList(response.data);
       // updateAllVehicles(response.data);
     });
-  }, []);
+  }, [orderList]);
+
   // console.log('sss', allVehicles.cars);
   return (
-    <View style={{ backgroundColor: '#fff', flex: 1, }}>
+    <View style={{backgroundColor: '#fff', flex: 1}}>
       <FlatList
         data={orderList}
-        renderItem={({ item }) => (
+        renderItem={({item}) => (
           <TouchableOpacity style={styles.itemContainer}>
             {console.log(item, 'item')}
             <View style={styles.container}>
               <View style={styles.imageContainer}>
                 <Image
-                  source={{ uri: item.vehicle.imageUrl }}
+                  source={{uri: item.vehicle.imageUrl}}
                   style={styles.image}
                   resizeMode="contain"
                 />
@@ -64,9 +65,9 @@ function OrderList({ navigation }) {
               flex: 1,
               borderBottomColor: '#D5D5D5',
               borderBottomWidth: 1,
-              flex: 1
+              flex: 1,
             }}>
-            <Text style={{ fontSize: 16 }}>Order List</Text>
+            <Text style={{fontSize: 16}}>Order List</Text>
           </View>
         }
       />
