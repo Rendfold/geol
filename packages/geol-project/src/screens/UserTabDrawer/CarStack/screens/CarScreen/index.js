@@ -174,7 +174,7 @@ function CarScreen({route, navigation}) {
 
       <View style={{alignItems: 'center'}}>
         <TouchableOpacity
-          onPress={() => onSubmit()}
+          onPress={() => onSubmit(item._id)}
           style={{
             backgroundColor: '#6BA07F',
             width: '50%',
