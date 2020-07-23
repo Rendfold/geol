@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import {
   View,
   Text,
@@ -10,15 +10,16 @@ import {
   FlatList,
   StyleSheet,
   Image,
-  Alert
+  Alert,
 } from 'react-native';
 import DatePicker from './DatePicker';
 import { isEmpty } from 'lodash'
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 import { AllVehiclesContext } from '../../../../../Context/AllVehiclesContext';
+import axios from 'axios';
 
-function CarScreen({ route, navigation }) {
-  const { allVehicles, updateAllVehicles } = useContext(AllVehiclesContext);
+function CarScreen({route, navigation}) {
+  const {allVehicles, updateAllVehicles} = useContext(AllVehiclesContext);
 
   const [, setDate] = React.useState(new Date());
   const handleChange = newDate => {
@@ -29,15 +30,52 @@ function CarScreen({ route, navigation }) {
     Alert.alert('Thank you', 'Order was addded successfully.', [{ text: 'OK' }]);
     navigation.navigate('CarSearchScreen');
   }
+  // const onSubmit = () => {
+  //   Alert.alert('Thank you', 'Booking was addded successfully.', [
+  //     {text: 'OK'},
+  //   ]);
+  //   navigation.navigate('CarSearchScreen');
+  // };
+
+  const onSubmit = id => {
+    // axios.get('https://ciu2020.herokuapp.com/vehicle/list').then(response => {
+    //   console.log('ress data--->', response.data);
+    //   updateAllVehicles(response.data);
+    // });
+
+    axios
+      .post('https://ciu2020.herokuapp.com/route/create', {
+        vehicle: id,
+        user: '5f148928a49b341e5aa2b90b',
+        routeStart: new Date(),
+      })
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
+    // axios
+    //   .put(
+    //     'https://ciu2020.herokuapp.com/route/create',
+    //     ('vehicle': '5f187f3c26f607c61c3efd2b'),
+    //     ('user': '5f148928a49b341e5aa2b90b'),
+    //     ('routeStart': '2020-07-18T20:09:21.177Z'),
+    //     {headers: {'Content-Type': 'text/plain'}},
+    //   )
+    //   .then(r => console.log(r))
+    //   .catch(e => console.log(e));
+  };
 
   let item = route.params && route.params.data;
   return (
-    <ScrollView style={{ backgroundColor: '#fff', flex: 1, }}>
+    <ScrollView style={{backgroundColor: '#fff', flex: 1}}>
       <View style={styles.itemContainer}>
         <View style={styles.container}>
           <View style={styles.imageContainer}>
             <Image
-              source={{ uri: item.imageUrl }}
+              source={{uri: item.imageUrl}}
               style={styles.image}
               resizeMode="contain"
             />
