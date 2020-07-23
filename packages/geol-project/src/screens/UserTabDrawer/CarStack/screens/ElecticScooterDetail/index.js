@@ -94,9 +94,9 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   itemText: {
-    fontWeight: 'bold',
     fontSize: 20,
     color: '#0B3E32',
+    lineHeight: 28
   },
 });
 

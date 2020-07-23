@@ -13,8 +13,8 @@ import {
   Alert
 } from 'react-native';
 import DatePicker from './DatePicker';
-import { isEmpty} from 'lodash'
-import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import { isEmpty } from 'lodash'
+import Icon from 'react-native-vector-icons/dist/Ionicons';
 import { AllVehiclesContext } from '../../../../../Context/AllVehiclesContext';
 
 function CarScreen({ route, navigation }) {
@@ -26,7 +26,7 @@ function CarScreen({ route, navigation }) {
   };
 
   const onSubmit = () => {
-    Alert.alert('Thank you','Order was addded successfully.', [{ text: 'OK' }]);
+    Alert.alert('Thank you', 'Order was addded successfully.', [{ text: 'OK' }]);
     navigation.navigate('CarSearchScreen');
   }
 
@@ -43,21 +43,35 @@ function CarScreen({ route, navigation }) {
             />
           </View>
           <Text style={styles.itemText}>{item.type}</Text>
-          {!isEmpty(item.color) ? <Text style={styles.itemText}>color: {item.color}</Text>: null}
+          {!isEmpty(item.color) ? <Text style={styles.itemText}>color: {item.color}</Text> : null}
           <Text style={styles.itemText}>model: {item.model}</Text>
           <Text style={styles.itemText}>price: {item.price}$</Text>
-         {!isEmpty(item.licenseNumber) ? <Text style={styles.itemText}>
+          {!isEmpty(item.licenseNumber) ? <Text style={styles.itemText}>
             Car Number: {item.licenseNumber}
           </Text>
-          : null}
+            : null}
         </View>
       </View>
-      <View style={{alignItems: 'center', paddingBottom: 15}}>
-      <View style={{ paddingHorizontal: 16, alignItems: 'center', justifyContent: 'center', height: 40, borderWidth: 1, borderRadius: 15, borderColor: '#6BA07F', width: '40%'}}>
-          <DatePicker handleChange={handleChange} />
+      <View style={{ flexDirection: 'row', paddingHorizontal: 16 , alignItems: 'center', justifyContent: 'space-between'}}>
+        <Text style={{ fontSize: 18, paddingRight: 15, paddingBottom: 10 }}>Booking Start Date</Text>
+        <View style={{ alignItems: 'flex-end', paddingBottom: 15 }}>
+          <View style={{ paddingHorizontal: 16, alignItems: 'center', justifyContent: 'center', height: 40, borderWidth: 1, borderRadius: 15, borderColor: '#6BA07F', width: '100%' }}>
+            <DatePicker handleChange={handleChange} />
+          </View>
         </View>
+      </View>
+
+      <View style={{ flexDirection: 'row', paddingHorizontal: 16 , alignItems: 'center', justifyContent: 'space-between' }}>
+        <Text style={{ fontSize: 18, paddingRight: 15, paddingBottom: 10 }}>Booking End Date</Text>
+        <View style={{ alignItems: 'center', paddingBottom: 15 }}>
+          <View style={{ paddingHorizontal: 16, alignItems: 'center', justifyContent: 'center', height: 40, borderWidth: 1, borderRadius: 15, borderColor: '#6BA07F', width: '100%' }}>
+            <DatePicker handleChange={handleChange} />
+          </View>
         </View>
+      </View>
       {item.location ?
+      <View style={{ flexDirection: 'row', paddingHorizontal: 16 , alignItems: 'center', justifyContent: 'center', marginVertical: 10 }}>
+        <Icon name="location-sharp" color="#6BA07F" size={30}/>
         <Button
           title="See At Map"
           color="#6BA07F"
@@ -83,20 +97,21 @@ function CarScreen({ route, navigation }) {
             Linking.openURL(url);
           }}
         />
+        </View>
         : null}
 
-      <View style={{alignItems: 'center'}}>
-      <TouchableOpacity
-        onPress={() => onSubmit()}
-        style={{
-          backgroundColor: '#6BA07F',
-          width: '50%',
-          height: 44,
-          borderRadius: 6,
-          marginTop: 20,
-        }}>
-           <Text style={{color: '#fff', fontSize: 18, textAlign: 'center', lineHeight: 44}}>Order</Text>
-      </TouchableOpacity>
+      <View style={{ alignItems: 'center' }}>
+        <TouchableOpacity
+          onPress={() => onSubmit()}
+          style={{
+            backgroundColor: '#6BA07F',
+            width: '50%',
+            height: 44,
+            borderRadius: 6,
+            marginTop: 20,
+          }}>
+          <Text style={{ color: '#fff', fontSize: 18, textAlign: 'center', lineHeight: 44 }}>Order</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -106,15 +121,18 @@ const styles = StyleSheet.create({
   itemContainer: {
     marginVertical: 10,
     width: '100%',
-    height: 300,
+    height: 320,
     alignItems: 'center',
+    marginBottom: 20
   },
   container: {
-    backgroundColor: '#E2FAF4',
     width: '90%',
-    height: 300,
+    height: 320,
     borderRadius: 16,
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#58C882',
+    paddingVertical: 15,
   },
   imageContainer: {
     width: '100%',
@@ -126,9 +144,9 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   itemText: {
-    fontWeight: 'bold',
     fontSize: 20,
     color: '#0B3E32',
+    lineHeight: 28
   },
 });
 
