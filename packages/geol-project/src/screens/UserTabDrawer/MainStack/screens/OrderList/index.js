@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import {
   View,
   Text,
@@ -11,24 +11,44 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
-import { isEmpty } from 'lodash';
-import { AllVehiclesContext } from '../../../../../Context/AllVehiclesContext';
+import {isEmpty} from 'lodash';
+import {OrderListContext} from '../../../../../Context/OrderListContext';
+import axios from 'axios';
 
-function OrderList({ navigation }) {
-  const { allVehicles, updateAllVehicles } = useContext(AllVehiclesContext);
+function OrderList({navigation}) {
+  const {orderList, updateOrderList} = useContext(OrderListContext);
+  console.log('aqane geeshveba data------>', orderList);
 
-  console.log('sss', allVehicles.cars);
+  useEffect(() => {
+    axios
+      .get(
+        'https://ciu2020.herokuapp.com/vehicle/personal/5f15f86d9f2523efb0f0bb5e',
+      )
+      .then(response => {
+        console.log('ress data car ord--->', response.data);
+        // updateAllVehicles(response.data);
+      });
+  }, []);
+
+  // console.log('sss', allVehicles.cars);
   const [, setDate] = React.useState(new Date());
   const handleChange = newDate => {
     setDate(newDate);
   };
 
   return (
-    <ScrollView style={{ backgroundColor: '#fff', flex: 1 }}>
-        <View style={{paddingTop: 40,height: 40, alignItems: 'center', width: '100%', flex:1}}>
+    <ScrollView style={{backgroundColor: '#fff', flex: 1}}>
+      <View
+        style={{
+          paddingTop: 40,
+          height: 40,
+          alignItems: 'center',
+          width: '100%',
+          flex: 1,
+        }}>
         <Text style={{fontSize: 16}}>Order List</Text>
-        </View>
-       
+      </View>
+
       {/* <FlatList
         data={allVehicles.cars}
         renderItem={({ item }) => (
