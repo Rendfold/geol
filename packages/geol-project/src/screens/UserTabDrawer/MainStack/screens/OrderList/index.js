@@ -25,10 +25,6 @@ function OrderList({ navigation }) {
     });
   }, []);
   // console.log('sss', allVehicles.cars);
-  const [, setDate] = React.useState(new Date());
-  const handleChange = newDate => {
-    setDate(newDate);
-  };
   return (
     <View style={{ backgroundColor: '#fff', flex: 1, }}>
       <FlatList
