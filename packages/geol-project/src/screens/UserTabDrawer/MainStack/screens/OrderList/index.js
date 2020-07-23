@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 150,
     zIndex: 10,
-    paddingVertical: 15
+    paddingVertical: 15,
   },
   image: {
     width: '100%',
