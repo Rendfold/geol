@@ -47,12 +47,14 @@ function OrderList({navigation}) {
         }}>
         <Text style={{fontSize: 16}}>Order List</Text>
       </View>
+      {orderList, 'orderList'}
 
       {/* <FlatList
-        data={allVehicles.cars}
+        data={orderList}
         renderItem={({ item }) => (
           <TouchableOpacity style={styles.itemContainer}
             onPress={() => navigation.navigate('CarScreen', { data: item })}>
+              {item, '111aaaa'}
             <View style={styles.container}>
               <View style={styles.imageContainer}>
                 <Image
